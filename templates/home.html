@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: white }
+        body { font-family: 'Inter', sans-serif; background-color: #779ce5 }
         :root {
             --decline-url: url('{{ url_for('static', filename='x-symbol.svg') }}');
             --accept-url: url('{{ url_for('static', filename='check-symbol.svg') }}');
         }
     </style>
 </head>
-<body class="min-h-screen p-4 sm:p-8 flex flex-col items-center text-black">
+<body class="min-h-screen p-4 sm:p-8 flex flex-col items-center text-[#1d2744]">
     
     <!-- title -->
     <div class="w-full max-w-4xl">
@@ -24,7 +24,7 @@
     </div>
 
     <!-- movie swiping card -->
-    <div id="movie-card" class="bg-[#161b22] p-6 rounded-xl shadow-2xl mb-8 flex flex-col text-white relative" style="overflow:hidden;">
+    <div id="movie-card" class="bg-[#1d2744] p-6 rounded-xl shadow-2xl mb-8 flex flex-col text-white relative" style="overflow:hidden;">
         
         <!-- transparent overlay for accept and decline -->
         <div id="overlay-left" role="button" class="overlay absolute top-0 left-0 w-1/2 h-full bg-transparent z-100 flex items-center">
@@ -34,17 +34,7 @@
             <div id="accept" class="hidden button-option rounded-full border-[6px] border-white m-5"></div>
         </div>
         
-        
-        <img id="movie-img" src="{{ url_for('static', filename='sample-movie-cover.png') }}" class="max-w-sm">
-        
-        <div id="movie-disc items-center">
-            <h2 class="text-xl font-bold">Movie Name {{movieName}}</h2>
-            <div id="flex flex-row">
-                <h3 class="text-sm text-gray-300">Release Date {{releaseDate}}</h3>
-                <h3 class="text-sm text-gray-300">Movie Genre(s) {{movieGenre}}</h3>
-            </div>
-            <p class="text-base">Movie Description {{movieDesc}}</p>
-        </div>
+        {% include 'movie.html' %}
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
