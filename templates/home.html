@@ -34,17 +34,7 @@
             <div id="accept" class="hidden button-option rounded-full border-[6px] border-white m-5"></div>
         </div>
         
-        
-        <img id="movie-img" src="{{ url_for('static', filename='sample-movie-cover.png') }}" class="max-w-sm">
-        
-        <div id="movie-disc items-center">
-            <h2 class="text-xl font-bold">Movie Name {{movieName}}</h2>
-            <div id="flex flex-row">
-                <h3 class="text-sm text-gray-300">Release Date {{releaseDate}}</h3>
-                <h3 class="text-sm text-gray-300">Movie Genre(s) {{movieGenre}}</h3>
-            </div>
-            <p class="text-base">Movie Description {{movieDesc}}</p>
-        </div>
+        {% include 'movie.html' %}
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
