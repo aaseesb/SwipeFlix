@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 import scroll
+
 query = []
 app = Flask(__name__)
 
@@ -19,7 +20,7 @@ def update_query():
 @app.route('/update_movie')
 def updateMovie():
     new_movie = render_template('movie.html')
-    return jsonify(new_movie);
+    return jsonify(new_movie)
 
 
 if __name__ == '__main__':

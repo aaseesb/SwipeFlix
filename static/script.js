@@ -1,3 +1,4 @@
+// for overlay of decline and accept
 const overlayleft = document.getElementById('overlay-left');
 const overlayright = document.getElementById('overlay-right');
 const hiddenClass = 'hidden';
@@ -21,3 +22,10 @@ overlayleft.addEventListener('mouseenter', handleHover);
 overlayleft.addEventListener('mouseleave', handleHover);
 overlayright.addEventListener('mouseenter', handleHover);
 overlayright.addEventListener('mouseleave', handleHover);
+
+
+// updating movie.html
+function updateMovie() {
+    
+
+}
