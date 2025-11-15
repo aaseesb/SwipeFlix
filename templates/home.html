@@ -10,20 +10,23 @@
     </style>
 </head>
 <body class="min-h-screen p-4 sm:p-8 flex flex-col items-center text-white">
+    
+    <!-- title -->
     <div id="app" class="w-full max-w-4xl">
-
         <header class="text-center mb-8">
             <h1 class="text-4xl font-extrabold text-white mb-2">CineMatch</h1>
         </header>
     </div>
 
+    <!-- movie swiping card -->
     <section id="movie-card" class="bg-[#161b22] p-6 rounded-xl shadow-2xl mb-8 flex flex-row">
-        <img id="movie-img" src="sample-movie-cover.jpg" class="max-w-sm mr-5">
+        <img id="movie-img" src="{{ url_for('static', filename='sample-movie-cover.png') }}" class="max-w-sm mr-5">
         <div id="movie-disc">
             <h2>{movieName}</h2>
             <h3></h3>
         </div>
     </section>
+
 
 </body>
 </html>

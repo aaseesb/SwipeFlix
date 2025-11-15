@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request
-from bookclass import book_import
-
 
 app = Flask(__name__)
 

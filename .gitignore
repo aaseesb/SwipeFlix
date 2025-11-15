@@ -1,2 +1,4 @@
 .venv/
 sample-movie-cover.jpg
+data/
+imdb-dataset.tar.gz
