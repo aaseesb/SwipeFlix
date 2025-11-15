@@ -15,7 +15,12 @@ def update_query():
         query.remove[0]
         query.append[scroll.select_movie_weighted()]
 
-        
+
+@app.route('/update_movie')
+def updateMovie():
+    new_movie = render_template('movie.html')
+    return jsonify(new_movie);
+
 
 if __name__ == '__main__':
     app.run(debug=False)
