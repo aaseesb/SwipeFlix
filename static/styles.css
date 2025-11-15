@@ -1,7 +1,26 @@
 /* for accept/decline */
-.overlay-left:hover{
-    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(143, 143, 143, 0));
+#overlay-left:hover {
+    background: linear-gradient(to right, rgb(255, 0, 0), rgba(143, 143, 143, 0));
 }
-.overlay-right:hover{
-    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(143, 143, 143, 0));
+#overlay-right:hover {
+    background: linear-gradient(to left, rgb(43, 255, 0), rgba(143, 143, 143, 0));
+}
+
+/* accept/decline icon colours */
+#decline {
+    background-image: var(--decline-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 50px;
+    width:75px;
+    height:75px;
+}
+
+#accept {
+    background-image: var(--accept-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width:75px;
+    height:75px;
 }
