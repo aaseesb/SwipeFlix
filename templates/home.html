@@ -25,15 +25,6 @@
 
     <!-- movie swiping card -->
     <div id="movie-card" class="bg-[#1d2744] p-6 rounded-xl shadow-2xl mb-8 flex flex-col text-white relative" style="overflow:hidden;">
-        
-        <!-- transparent overlay for accept and decline -->
-        <div id="overlay-left" role="button" class="overlay absolute top-0 left-0 w-1/2 h-full bg-transparent z-100 flex items-center">
-            <div id="decline" class="hidden button-option rounded-full border-[6px] border-white m-5"></div>
-        </div>
-        <div id="overlay-right" role="button" class="overlay absolute top-0 right-0 w-1/2 h-full bg-transparent z-100 flex items-center place-content-end">
-            <div id="accept" class="hidden button-option rounded-full border-[6px] border-white m-5"></div>
-        </div>
-        
         {% include 'movie.html' %}
     </div>
 
