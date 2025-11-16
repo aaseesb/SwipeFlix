@@ -2,6 +2,18 @@ import json
 import random
 from math import log, exp
 
+starting_value = 100
+decay_rate = 20
+MIN_PROB = 50
+MAX_PROB = 200
+
+feature_stats = {
+    "genres": {},
+    "actors": {},
+    "country": {},
+    "decade": {}
+}
+
 with open("movies.json", "r", encoding='utf-8') as f:
     movie_db = json.load(f)
 
@@ -16,28 +28,40 @@ class Movie:
         self.actors = self.extract_actor_names(actors)
         self.country = country
         self.language = language
-        self.decade = self.extract_decade(release_date)
+        self.decade = self.extract_decade(self.release_date)
+        self.score = starting_value  # baseline score for probability
 
     def extract_actor_names(self, actor_dict):
-        # Combine lead and supporting actors into 1 list
         actors = []
         if "lead" in actor_dict and actor_dict["lead"]:
             actors.append(actor_dict["lead"])
         if "supporting" in actor_dict and actor_dict["supporting"]:
             actors.extend(actor_dict["supporting"])
         return actors
-    
+
     def extract_decade(self, date_str):
         year = int(date_str.split("-")[0])
         decade = (year // 10) * 10
         return f"{decade}s"
 
-feature_stats = {
-    "genres": {},
-    "actors": {},
-    "country": {},
-    "decade": {}
-}
+def select_initial_movies():
+    selected_movies = []
+    for i in range(3):
+        title_key = random.choice(list(movie_db.keys()))
+        info = movie_db[title_key]
+        m = Movie(
+            title=info["title"],
+            cover=info["poster"],
+            description=info["description"],
+            genres=info["genres"],
+            release_date=info["release_date"],
+            length=info["runtime"],
+            actors=info["actors"],
+            country=info["country"],
+            language=info["language"]
+        )
+        selected_movies.append(m)
+    return selected_movies
 
 def update_feature(feature_dict, key, win):
     if key not in feature_dict:
@@ -48,6 +72,7 @@ def update_feature(feature_dict, key, win):
         feature_dict[key]["dislikes"] += 1
 
 def update_probability(movie, win):
+    # Update features
     for g in movie.genres:
         update_feature(feature_stats["genres"], g, win)
     for a in movie.actors:
@@ -55,65 +80,40 @@ def update_probability(movie, win):
     update_feature(feature_stats["country"], movie.country, win)
     update_feature(feature_stats["decade"], movie.decade, win)
 
-def compute_feature_weight(stats):
-    likes = stats["likes"]
-    dislikes = stats["dislikes"]
-    return log(likes / dislikes)
+    # Update movie baseline score
+    change = decay_rate if win else -decay_rate
+    movie.score += change
+    movie.score = max(MIN_PROB, min(MAX_PROB, movie.score))
 
-def compute_movie_score(movie):
-    score = 0
-    for g in movie.genres:
-        score += compute_feature_weight(feature_stats["genres"].get(g, {"likes":1,"dislikes":1}))
-    for a in movie.actors:
-        score += compute_feature_weight(feature_stats["actors"].get(a, {"likes":1,"dislikes":1}))
-    score += compute_feature_weight(feature_stats["country"].get(movie.country, {"likes":1,"dislikes":1}))
-    score += compute_feature_weight(feature_stats["decade"].get(movie.decade, {"likes":1,"dislikes":1}))
-    return score
+MIN_PROB = 1
+MAX_PROB = 99
+BASE_PROB = 50 
 
 def compute_like_probability(movie):
-    movies = []
-    scores = []
-    for info in movie_db.values():
-        m = Movie(
-            title=info["title"],
-            cover=info["poster"],
-            description=info["description"],
-            genres=info["genres"],
-            release_date=info["release_date"],
-            length=info["runtime"],
-            actors=info["actors"],
-            country=info["country"],
-            language=info["language"]
-        )
-        movies.append(m)
-        scores.append(compute_movie_score(m))
-    
-    exp_scores = [exp(s) for s in scores]
-    total = sum(exp_scores)
-    this_score = exp(compute_movie_score(movie))
-    return this_score / total
+    prob = BASE_PROB
 
-def select_initial_movies():
-    selected_movies = []
-    for i in range(2):
-        title_key = random.choice(list(movie_db.keys()))
-        movie_info = movie_db[title_key]
-        movie_obj = Movie(
-            title=movie_info["title"],
-            cover=movie_info["poster"],
-            description=movie_info["description"],
-            genres=movie_info["genres"],
-            release_date=movie_info["release_date"],
-            length=movie_info["runtime"],
-            actors=movie_info["actors"],
-            country=movie_info["country"],
-            language=movie_info["language"]
-        )
-        selected_movies.append(movie_obj)
-    return selected_movies
+    for g in movie.genres:
+        stats = feature_stats["genres"].get(g, {"likes": 1, "dislikes": 1})
+        prob += log(stats["likes"] / stats["dislikes"]) * 5
+
+    for a in movie.actors:
+        stats = feature_stats["actors"].get(a, {"likes": 1, "dislikes": 1})
+        prob += log(stats["likes"] / stats["dislikes"]) * 2
+
+    stats = feature_stats["country"].get(movie.country, {"likes": 1, "dislikes": 1})
+    prob += log(stats["likes"] / stats["dislikes"]) * 3
+
+    stats = feature_stats["decade"].get(movie.decade, {"likes": 1, "dislikes": 1})
+    prob += log(stats["likes"] / stats["dislikes"]) * 6
+
+    prob = max(MIN_PROB, min(MAX_PROB, prob))
+
+    return prob / 100
 
 def select_movie_weighted():
     movies = []
+    weights = []
+
     for info in movie_db.values():
         m = Movie(
             title=info["title"],
@@ -127,6 +127,24 @@ def select_movie_weighted():
             language=info["language"]
         )
         movies.append(m)
-    
-    scores = [compute_movie_score(m) for m in movies]
-    return random.choices(movies, weights=[exp(s) for s in scores], k=1)[0]
+        weights.append(compute_like_probability(m))
+
+    return random.choices(movies, weights=weights, k=1)[0]
+
+"""
+TEST SNIPPET
+
+if __name__ == "__main__":
+    print("Initial three random movies:")
+    initial_movies = select_initial_movies()
+    for m in initial_movies:
+        print(f"- {m.title} ({m.decade})")
+
+    print("\nSimulating 10 user likes:")
+    for i in range(1, 15):
+        movie = select_movie_weighted()
+        win = True
+        update_probability(movie, win)
+        prob = compute_like_probability(movie)
+        print(f"[Answer {i}] Liked: {movie.title} -> Probability: {prob*100:.2f}%")
+"""

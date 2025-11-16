@@ -1,5 +1,5 @@
 {
-    "Star Wars: Episode VII - The Force Awakens": {
+    "Star Wars: The Force Awakens": {
         "title": "Star Wars: The Force Awakens",
         "poster": "https://image.tmdb.org/t/p/w500/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg",
         "release_date": "2015-12-15",
@@ -189,7 +189,7 @@
         },
         "country": "United States of America"
     },
-    "Star Wars: Episode VIII - The Last Jedi": {
+    "Star Wars: The Last Jedi": {
         "title": "Star Wars: The Last Jedi",
         "poster": "https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
         "release_date": "2017-12-13",
@@ -297,7 +297,7 @@
         },
         "country": "United States of America"
     },
-    "Star Wars: Episode IX - The Rise of Skywalker": {
+    "Star Wars: The Rise of Skywalker": {
         "title": "Star Wars: The Rise of Skywalker",
         "poster": "https://image.tmdb.org/t/p/w500/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
         "release_date": "2019-12-18",
@@ -406,7 +406,7 @@
         },
         "country": "United States of America"
     },
-    "Star Wars: Episode IV - A New Hope": {
+    "Star Wars": {
         "title": "Star Wars",
         "poster": "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
         "release_date": "1977-05-25",
@@ -835,7 +835,7 @@
         },
         "country": "United States of America"
     },
-    "Spider-Man: Far from Home": {
+    "Spider-Man: Far From Home": {
         "title": "Spider-Man: Far From Home",
         "poster": "https://image.tmdb.org/t/p/w500/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg",
         "release_date": "2019-06-28",
@@ -1594,7 +1594,7 @@
         },
         "country": "United States of America"
     },
-    "Harry Potter and the Sorcerer's Stone": {
+    "Harry Potter and the Philosopher's Stone": {
         "title": "Harry Potter and the Philosopher's Stone",
         "poster": "https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
         "release_date": "2001-11-16",
@@ -1739,7 +1739,7 @@
         },
         "country": "United States of America"
     },
-    "Star Wars: Episode VI - Return of the Jedi": {
+    "Return of the Jedi": {
         "title": "Return of the Jedi",
         "poster": "https://image.tmdb.org/t/p/w500/jQYlydvHm3kUix1f8prMucrplhm.jpg",
         "release_date": "1983-05-25",
@@ -1971,7 +1971,7 @@
         },
         "country": "United States of America"
     },
-    "Star Wars: Episode V - The Empire Strikes Back": {
+    "The Empire Strikes Back": {
         "title": "The Empire Strikes Back",
         "poster": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
         "release_date": "1980-05-20",
@@ -2768,7 +2768,7 @@
         },
         "country": "United States of America"
     },
-    "Indiana Jones and the Raiders of the Lost Ark": {
+    "Raiders of the Lost Ark": {
         "title": "Raiders of the Lost Ark",
         "poster": "https://image.tmdb.org/t/p/w500/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
         "release_date": "1981-06-12",
@@ -3001,7 +3001,7 @@
         },
         "country": "United States of America"
     },
-    "Fast & Furious 6": {
+    "Fast": {
         "title": "Fast",
         "poster": "https://image.tmdb.org/t/p/w500/p8c0a159yKnpciQCFsR8BaC23po.jpg",
         "release_date": "2010-06-24",
@@ -3823,7 +3823,7 @@
         },
         "country": "United States of America"
     },
-    "X2: X-Men United": {
+    "X2": {
         "title": "X2",
         "poster": "https://image.tmdb.org/t/p/w500/bWMw0FMsY8DICgrQnrTSWbzEgtr.jpg",
         "release_date": "2003-04-27",
@@ -4093,7 +4093,7 @@
         },
         "country": "United States of America"
     },
-    "Sherlock Holmes": {
+    "Sherlock Holmes: A Game of Shadows": {
         "title": "Sherlock Holmes: A Game of Shadows",
         "poster": "https://image.tmdb.org/t/p/w500/y1MYZkwhZK6L0Jy4YMuPktzDOfn.jpg",
         "release_date": "2011-11-22",
@@ -4522,7 +4522,7 @@
         },
         "country": "United States of America"
     },
-    "Monsters vs. Aliens": {
+    "Monsters vs Aliens: Creature Features": {
         "title": "Monsters vs Aliens: Creature Features",
         "poster": "https://image.tmdb.org/t/p/w500/wJaq46vIUn8jSx1wJiS06kDO6cb.jpg",
         "release_date": "2014-10-01",
@@ -4967,28 +4967,6 @@
         },
         "country": "United States of America"
     },
-    "Sherlock Holmes: A Game of Shadows": {
-        "title": "Sherlock Holmes: A Game of Shadows",
-        "poster": "https://image.tmdb.org/t/p/w500/y1MYZkwhZK6L0Jy4YMuPktzDOfn.jpg",
-        "release_date": "2011-11-22",
-        "genres": [
-            "Adventure",
-            "Action",
-            "Crime",
-            "Mystery"
-        ],
-        "language": "en",
-        "description": "There is a new criminal mastermind at large (Professor Moriarty) and not only is he Holmes’ intellectual equal, but his capacity for evil and lack of conscience may give him an advantage over the  detective.",
-        "runtime": 129,
-        "actors": {
-            "lead": "Robert Downey Jr.",
-            "supporting": [
-                "Jude Law",
-                "Noomi Rapace"
-            ]
-        },
-        "country": "United States of America"
-    },
     "The Day After Tomorrow": {
         "title": "The Day After Tomorrow",
         "poster": "https://image.tmdb.org/t/p/w500/Wr4HeYQRvwVCxzOV5TmGE7UkXq.jpg",
@@ -5010,7 +4988,7 @@
         },
         "country": "United States of America"
     },
-    "Mr. & Mrs. Smith": {
+    "Mr & Mrs Ramachari": {
         "title": "Mr & Mrs Ramachari",
         "poster": "https://image.tmdb.org/t/p/w500/5xo3WZsz73cRGpo3xEfKS5qwf1h.jpg",
         "release_date": "2014-12-25",
@@ -5279,7 +5257,7 @@
         },
         "country": "India"
     },
-    "Liar Liar": {
+    "Liar Game: The Final Stage": {
         "title": "Liar Game: The Final Stage",
         "poster": "https://image.tmdb.org/t/p/w500/lRFqPafC2HnRUwB7EK1935hNdke.jpg",
         "release_date": "2010-03-06",
@@ -5344,7 +5322,7 @@
         },
         "country": "United States of America"
     },
-    "Mission: Impossible": {
+    "Mission: Impossible - The Final Reckoning": {
         "title": "Mission: Impossible - The Final Reckoning",
         "poster": "https://image.tmdb.org/t/p/w500/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
         "release_date": "2025-05-17",
@@ -5875,23 +5853,6 @@
         },
         "country": "United States of America"
     },
-    "Fast & Furious Presents: Hobbs & Shaw": {
-        "title": "Fast",
-        "poster": "https://image.tmdb.org/t/p/w500/p8c0a159yKnpciQCFsR8BaC23po.jpg",
-        "release_date": "2010-06-24",
-        "genres": [
-            "Action",
-            "Comedy"
-        ],
-        "language": "en",
-        "description": "A balls to the wall action film about Fast, the fastest person alive, who is also named Fast.",
-        "runtime": 2,
-        "actors": {
-            "lead": "Steve Clemmons",
-            "supporting": []
-        },
-        "country": null
-    },
     "Apollo 13": {
         "title": "Apollo 13",
         "poster": "https://image.tmdb.org/t/p/w500/tVeKscCm2fY1xDXZk8PgnZ87h9S.jpg",
@@ -5955,7 +5916,7 @@
         },
         "country": "United States of America"
     },
-    "F9: The Fast Saga": {
+    "F9": {
         "title": "F9",
         "poster": "https://image.tmdb.org/t/p/w500/deEmLILTPejEb6OGsXRJ5MCvyDW.jpg",
         "release_date": "2021-05-19",
@@ -6326,7 +6287,7 @@
         },
         "country": "United States of America"
     },
-    "Three Men and a Baby": {
+    "Three Wise Men and a Baby": {
         "title": "Three Wise Men and a Baby",
         "poster": "https://image.tmdb.org/t/p/w500/yR3hrMFIiczybGN7Y8wXMjmnPfz.jpg",
         "release_date": "2022-11-19",
@@ -7139,7 +7100,7 @@
         },
         "country": "United States of America"
     },
-    "X-Men": {
+    "X-Men: Apocalypse": {
         "title": "X-Men: Apocalypse",
         "poster": "https://image.tmdb.org/t/p/w500/ikA8UhYdTGpqbatFa93nIf6noSr.jpg",
         "release_date": "2016-05-18",
@@ -7224,28 +7185,6 @@
         },
         "country": "United States of America"
     },
-    "X-Men: Apocalypse": {
-        "title": "X-Men: Apocalypse",
-        "poster": "https://image.tmdb.org/t/p/w500/ikA8UhYdTGpqbatFa93nIf6noSr.jpg",
-        "release_date": "2016-05-18",
-        "genres": [
-            "Action",
-            "Adventure",
-            "Science Fiction",
-            "Fantasy"
-        ],
-        "language": "en",
-        "description": "After the re-emergence of the world's first mutant, world-destroyer Apocalypse, the X-Men must unite to defeat his extinction level plan.",
-        "runtime": 144,
-        "actors": {
-            "lead": "James McAvoy",
-            "supporting": [
-                "Michael Fassbender",
-                "Jennifer Lawrence"
-            ]
-        },
-        "country": "United States of America"
-    },
     "The Mummy": {
         "title": "The Mummy",
         "poster": "https://image.tmdb.org/t/p/w500/yhIsVvcUm7QxzLfT6HW2wLf5ajY.jpg",
@@ -7308,23 +7247,6 @@
             ]
         },
         "country": "Canada"
-    },
-    "Fast & Furious": {
-        "title": "Fast",
-        "poster": "https://image.tmdb.org/t/p/w500/p8c0a159yKnpciQCFsR8BaC23po.jpg",
-        "release_date": "2010-06-24",
-        "genres": [
-            "Action",
-            "Comedy"
-        ],
-        "language": "en",
-        "description": "A balls to the wall action film about Fast, the fastest person alive, who is also named Fast.",
-        "runtime": 2,
-        "actors": {
-            "lead": "Steve Clemmons",
-            "supporting": []
-        },
-        "country": null
     },
     "Over the Hedge": {
         "title": "Over the Hedge",
@@ -8297,7 +8219,7 @@
         },
         "country": "United States of America"
     },
-    "Marley & Me": {
+    "Bob Marley: Roots of the Man": {
         "title": "Bob Marley: Roots of the Man",
         "poster": "https://image.tmdb.org/t/p/w500/dQho3sZx5kVoABf8x9XBkQXbtMq.jpg",
         "release_date": "2018-01-25",
@@ -8339,7 +8261,7 @@
         },
         "country": "United States of America"
     },
-    "Once Upon a Time... In Hollywood": {
+    "Once Upon a Time... in Hollywood": {
         "title": "Once Upon a Time... in Hollywood",
         "poster": "https://image.tmdb.org/t/p/w500/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg",
         "release_date": "2019-07-24",
@@ -9271,7 +9193,7 @@
         },
         "country": "United Kingdom"
     },
-    "Angels & Demons": {
+    "Angels Around Me": {
         "title": "Angels Around Me",
         "poster": "https://image.tmdb.org/t/p/w500/oL4WeAjs2inZLnVF1rMldqP1ocV.jpg",
         "release_date": "2013-04-15",
@@ -9459,7 +9381,7 @@
         },
         "country": "United States of America"
     },
-    "Fantastic 4: Rise of the Silver Surfer": {
+    "Fantastic Four: Rise of the Silver Surfer": {
         "title": "Fantastic Four: Rise of the Silver Surfer",
         "poster": "https://image.tmdb.org/t/p/w500/1rxTraSO45jbvTrCeSvJ6RmOu1b.jpg",
         "release_date": "2007-06-13",
@@ -9630,7 +9552,7 @@
         },
         "country": "United States of America"
     },
-    "The Divergent Series: Insurgent": {
+    "Insurgent": {
         "title": "Insurgent",
         "poster": "https://image.tmdb.org/t/p/w500/dP5Fb6YRfzmCQtRbHOr2kO7tJW9.jpg",
         "release_date": "2015-03-18",
@@ -9837,7 +9759,7 @@
         },
         "country": "United States of America"
     },
-    "Crouching Tiger, Hidden Dragon": {
+    "Crouching Tiger, Hidden Dragon: Sword of Destiny": {
         "title": "Crouching Tiger, Hidden Dragon: Sword of Destiny",
         "poster": "https://image.tmdb.org/t/p/w500/te3aeAyhkfqgpa5BSTq3oNxGqQD.jpg",
         "release_date": "2016-02-18",
@@ -11295,7 +11217,7 @@
         },
         "country": "Thailand"
     },
-    "A Series of Unfortunate Events": {
+    "Lemony Snicket's A Series of Unfortunate Events": {
         "title": "Lemony Snicket's A Series of Unfortunate Events",
         "poster": "https://image.tmdb.org/t/p/w500/76Xi8z7Whv5WFIdfzzvC5tKSicd.jpg",
         "release_date": "2004-12-16",
@@ -11376,7 +11298,7 @@
         },
         "country": "United States of America"
     },
-    "Now You See Me": {
+    "Now You See Me: Now You Don't": {
         "title": "Now You See Me: Now You Don't",
         "poster": "https://image.tmdb.org/t/p/w500/oD3Eey4e4Z259XLm3eD3WGcoJAh.jpg",
         "release_date": "2025-11-12",
@@ -11641,7 +11563,7 @@
         },
         "country": "Germany"
     },
-    "Lee Daniels' The Butler": {
+    "The Butler": {
         "title": "The Butler",
         "poster": "https://image.tmdb.org/t/p/w500/pAi8Bl3ZKX6pANPVhNwbhbQANop.jpg",
         "release_date": "2013-08-16",
@@ -11903,7 +11825,7 @@
         },
         "country": "Japan"
     },
-    "Dodgeball: A True Underdog Story": {
+    "DodgeBall: A True Underdog Story": {
         "title": "DodgeBall: A True Underdog Story",
         "poster": "https://image.tmdb.org/t/p/w500/r8KbNHkkwFXLjV1suGwm0Qjure5.jpg",
         "release_date": "2004-06-18",
@@ -12653,7 +12575,7 @@
         },
         "country": "United States of America"
     },
-    "The 40-Year-Old Virgin": {
+    "The 40 Year Old Virgin": {
         "title": "The 40 Year Old Virgin",
         "poster": "https://image.tmdb.org/t/p/w500/mVeoqL37gzhMXQVpONi9DGOQ3tZ.jpg",
         "release_date": "2005-08-11",
@@ -13026,7 +12948,7 @@
         },
         "country": "Finland"
     },
-    "Batman & Robin": {
+    "Aztec Batman: Clash of Empires": {
         "title": "Aztec Batman: Clash of Empires",
         "poster": "https://image.tmdb.org/t/p/w500/s0Mlo5w4INp3bUdsJo3RaSSMXWz.jpg",
         "release_date": "2025-09-18",
@@ -13337,7 +13259,7 @@
         },
         "country": "Australia"
     },
-    "Interview with the Vampire: The Vampire Chronicles": {
+    "Interview with the Vampire": {
         "title": "Interview with the Vampire",
         "poster": "https://image.tmdb.org/t/p/w500/2162lAT2MP36MyJd2sttmj5du5T.jpg",
         "release_date": "1994-11-11",
@@ -14021,7 +13943,7 @@
         },
         "country": "United States of America"
     },
-    "Bad Grandpa": {
+    "Jackass Presents: Bad Grandpa .5": {
         "title": "Jackass Presents: Bad Grandpa .5",
         "poster": "https://image.tmdb.org/t/p/w500/4FBfykfsiFHp3EPlG1rH7S5XwF3.jpg",
         "release_date": "2014-06-03",
@@ -14794,7 +14716,7 @@
         },
         "country": "United States of America"
     },
-    "Cowboys & Aliens": {
+    "Rock n' Roll Cowboys": {
         "title": "Rock n' Roll Cowboys",
         "poster": "https://image.tmdb.org/t/p/w500/9JVvHLH3SdpxG5lu59EIvrWCaDb.jpg",
         "release_date": "1988-12-30",
@@ -14942,7 +14864,7 @@
         },
         "country": "United States of America"
     },
-    "Die Hard with a Vengeance": {
+    "Die Hard: With a Vengeance": {
         "title": "Die Hard: With a Vengeance",
         "poster": "https://image.tmdb.org/t/p/w500/buqmCdFQEWwEpL3agGgg2GVjN2d.jpg",
         "release_date": "1995-05-19",
@@ -15565,7 +15487,7 @@
         },
         "country": "United Kingdom"
     },
-    "Julie & Julia": {
+    "Julie Keeps Quiet": {
         "title": "Julie Keeps Quiet",
         "poster": "https://image.tmdb.org/t/p/w500/HscPMTxowVUG4I20uWEdnD3PaT.jpg",
         "release_date": "2024-10-16",
@@ -15809,7 +15731,7 @@
         },
         "country": "United States of America"
     },
-    "Cats & Dogs": {
+    "Cat's Hair": {
         "title": "Cat's Hair",
         "poster": "https://image.tmdb.org/t/p/w500/kjjqRBPeo0hsOuM0FWEJmDpdl6W.jpg",
         "release_date": "2025-11-28",
@@ -16162,7 +16084,7 @@
         },
         "country": "United States of America"
     },
-    "Crimson Tide": {
+    "The Making of 'Crimson Tide'": {
         "title": "The Making of 'Crimson Tide'",
         "poster": "https://image.tmdb.org/t/p/w500/iqjxWP0sCqIZ6M4fMpWOh8uUHHC.jpg",
         "release_date": "1995-01-01",
@@ -16372,7 +16294,7 @@
         },
         "country": "United States of America"
     },
-    "Me, Myself & Irene": {
+    "Me… Myself": {
         "title": "Me… Myself",
         "poster": "https://image.tmdb.org/t/p/w500/qqauUsSDqx1xgD3KAsLM7hOvL8i.jpg",
         "release_date": "2007-04-19",
@@ -16940,7 +16862,7 @@
         },
         "country": "United States of America"
     },
-    "The Hand that Rocks the Cradle": {
+    "The Hand That Rocks the Cradle": {
         "title": "The Hand That Rocks the Cradle",
         "poster": "https://image.tmdb.org/t/p/w500/6Z4rtNUA51AegNjhJ2dKFcfsHE2.jpg",
         "release_date": "2025-10-16",
@@ -17247,7 +17169,7 @@
         },
         "country": "United States of America"
     },
-    "Spy Kids 2: Island of Lost Dreams": {
+    "Spy Kids 2: The Island of Lost Dreams": {
         "title": "Spy Kids 2: The Island of Lost Dreams",
         "poster": "https://image.tmdb.org/t/p/w500/z8pfWCk6SlxxDLXXQdUHdxF5dwJ.jpg",
         "release_date": "2002-08-07",
@@ -17745,7 +17667,7 @@
         },
         "country": "United States of America"
     },
-    "The X Files": {
+    "The X-Files": {
         "title": "The X-Files",
         "poster": "https://image.tmdb.org/t/p/w500/yLIw6shz2WC3W3iI0jROsF4B2ha.jpg",
         "release_date": "1998-06-19",
@@ -17889,7 +17811,7 @@
         },
         "country": "France"
     },
-    "Battle Los Angeles": {
+    "Battle: Los Angeles": {
         "title": "Battle: Los Angeles",
         "poster": "https://image.tmdb.org/t/p/w500/jloyGeVYZSxM9zsLFvVOWuj2ey4.jpg",
         "release_date": "2011-03-08",
@@ -18532,7 +18454,7 @@
         },
         "country": "Germany"
     },
-    "MASH": {
+    "M*A*S*H": {
         "title": "M*A*S*H",
         "poster": "https://image.tmdb.org/t/p/w500/on8Q9LhtHYNhmITjUMpgOUkIG8o.jpg",
         "release_date": "1970-02-18",
