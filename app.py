@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    update_query('initial')
+    update_query(True)
     movie = query[0]
 
     return render_template('home.html', 
@@ -21,19 +21,20 @@ def home():
                             )
 
 
-def update_query(liked_status):
+def update_query(liked_movie):
     global query
     if query == []:
         query = scroll.select_initial_movies()
     else:
-        query.pop(0)
+        movie = query.pop(0)
+        scroll.update_probability(movie, liked_movie)
         query.append(scroll.select_movie_weighted())
 
 
 @app.route('/update_movie', methods=['POST'])
 def updateMovie():
     data = request.get_json()
-    liked_status = data.get('likedStatus') # decline or accept
+    liked_status = data.get('likedMovie') # true for accept, false for decline
 
     update_query(liked_status)
     movie = query[0]
