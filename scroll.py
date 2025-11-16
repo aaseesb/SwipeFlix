@@ -85,7 +85,7 @@ def update_probability(movie, win):
         update_feature(feature_stats["actors"], a, win)
     update_feature(feature_stats["country"], movie.country, win)
     update_feature(feature_stats["decade"], movie.decade, win)
-    movie_db.pop(movie.title)
+    movie_db.pop(movie.title, None)
 
 
 
@@ -156,6 +156,23 @@ def select_movie_weighted():
 
     return best_movie
 
+def get_top_features():
+    global feature_stats
+    top_features = {}
+
+    for category, stats in feature_stats.items():
+        best_feature = None
+        best_ratio = -1  # likes/dislikes ratio
+        
+        for feature, counts in stats.items():
+            ratio = counts["likes"] / counts["dislikes"]
+            if ratio > best_ratio:
+                best_ratio = ratio
+                best_feature = feature
+        
+        top_features[category] = best_feature
+    
+    return(top_features)
 
 """if __name__ == "__main__":
     print("Initial three random movies:")
