@@ -40,13 +40,15 @@ def update_query(liked_movie: bool):
 def updateMovie():
     data = request.get_json()
     liked_status = data.get('likedMovie') # true for accept, false for decline
+    
+    update_query(liked_status)
+    movie = query[0]
+
 
     # compute probability
     prob = scroll.compute_like_probability(movie)
     prob_percent = round(prob * 100)
-    
-    update_query(liked_status)
-    movie = query[0]
+
 
     page = render_template('movie.html', 
                             movieName = movie.title,
