@@ -1,15 +1,6 @@
 import json
 import random
-
-starting_value = 100
-decay_rate = 20
-
-category_weights = {
-    "genres": {},
-    "actors": {},
-    "country": {},
-    "decade": {}
-}
+from math import log, exp
 
 with open("movies.json", "r", encoding='utf-8') as f:
     movie_db = json.load(f)
@@ -25,83 +16,64 @@ class Movie:
         self.actors = self.extract_actor_names(actors)
         self.country = country
         self.language = language
+        self.decade = self.extract_decade(release_date)
 
     def extract_actor_names(self, actor_dict):
-        #combine lead and support actors into 1 list
+        # Combine lead and supporting actors into 1 list
         actors = []
-
         if "lead" in actor_dict and actor_dict["lead"]:
             actors.append(actor_dict["lead"])
-
         if "supporting" in actor_dict and actor_dict["supporting"]:
             actors.extend(actor_dict["supporting"])
-
         return actors
     
     def extract_decade(self, date_str):
-        # to qualify movies in the decade their released
         year = int(date_str.split("-")[0])
         decade = (year // 10) * 10
         return f"{decade}s"
 
-def select_initial_movies():
-    selected_movies = []
+feature_stats = {
+    "genres": {},
+    "actors": {},
+    "country": {},
+    "decade": {}
+}
 
-    for i in range(2):
-        title_key = random.choice(list(movie_db.keys()))
-        movie_info = movie_db[title_key]
-
-        movie_obj = Movie(
-            title=movie_info["title"],
-            cover=movie_info["poster"],
-            description=movie_info["description"],
-            genres=movie_info["genres"],
-            release_date=movie_info["release_date"],
-            length=movie_info["runtime"],
-            actors=movie_info["actors"],
-            country=movie_info["country"],
-            language=movie_info["language"]
-        )
-
-
-        selected_movies.append(movie_obj)
-
-    return selected_movies
+def update_feature(feature_dict, key, win):
+    if key not in feature_dict:
+        feature_dict[key] = {"likes": 1, "dislikes": 1}
+    if win:
+        feature_dict[key]["likes"] += 1
+    else:
+        feature_dict[key]["dislikes"] += 1
 
 def update_probability(movie, win):
-    change = decay_rate if win else -decay_rate
-
     for g in movie.genres:
-        category_weights["genres"][g] = category_weights["genres"].get(g, starting_value) + change
-
+        update_feature(feature_stats["genres"], g, win)
     for a in movie.actors:
-        category_weights["actors"][a] = category_weights["actors"].get(a, starting_value) + change
+        update_feature(feature_stats["actors"], a, win)
+    update_feature(feature_stats["country"], movie.country, win)
+    update_feature(feature_stats["decade"], movie.decade, win)
 
-    c = movie.country
-    category_weights["country"][c] = category_weights["country"].get(c, starting_value) + change
-
-    d = movie.decade
-    category_weights["decade"][d] = category_weights["decade"].get(d, starting_value) + change
+def compute_feature_weight(stats):
+    likes = stats["likes"]
+    dislikes = stats["dislikes"]
+    return log(likes / dislikes)
 
 def compute_movie_score(movie):
     score = 0
-
     for g in movie.genres:
-        score += category_weights["genres"].get(g, starting_value)
-
+        score += compute_feature_weight(feature_stats["genres"].get(g, {"likes":1,"dislikes":1}))
     for a in movie.actors:
-        score += category_weights["actors"].get(a, starting_value)
-
-    score += category_weights["country"].get(movie.country, starting_value)
-
-    score += category_weights["decade"].get(movie.decade, starting_value)
-
+        score += compute_feature_weight(feature_stats["actors"].get(a, {"likes":1,"dislikes":1}))
+    score += compute_feature_weight(feature_stats["country"].get(movie.country, {"likes":1,"dislikes":1}))
+    score += compute_feature_weight(feature_stats["decade"].get(movie.decade, {"likes":1,"dislikes":1}))
     return score
 
-def select_movie_weighted():
+def compute_like_probability(movie):
     movies = []
-
-    for key, info in movie_db.items():
+    scores = []
+    for info in movie_db.values():
         m = Movie(
             title=info["title"],
             cover=info["poster"],
@@ -114,7 +86,47 @@ def select_movie_weighted():
             language=info["language"]
         )
         movies.append(m)
+        scores.append(compute_movie_score(m))
+    
+    exp_scores = [exp(s) for s in scores]
+    total = sum(exp_scores)
+    this_score = exp(compute_movie_score(movie))
+    return this_score / total
 
-    weights = [compute_movie_score(m) for m in movies]
+def select_initial_movies():
+    selected_movies = []
+    for i in range(2):
+        title_key = random.choice(list(movie_db.keys()))
+        movie_info = movie_db[title_key]
+        movie_obj = Movie(
+            title=movie_info["title"],
+            cover=movie_info["poster"],
+            description=movie_info["description"],
+            genres=movie_info["genres"],
+            release_date=movie_info["release_date"],
+            length=movie_info["runtime"],
+            actors=movie_info["actors"],
+            country=movie_info["country"],
+            language=movie_info["language"]
+        )
+        selected_movies.append(movie_obj)
+    return selected_movies
 
-    return random.choices(movies, weights=weights, k=1)[0]
+def select_movie_weighted():
+    movies = []
+    for info in movie_db.values():
+        m = Movie(
+            title=info["title"],
+            cover=info["poster"],
+            description=info["description"],
+            genres=info["genres"],
+            release_date=info["release_date"],
+            length=info["runtime"],
+            actors=info["actors"],
+            country=info["country"],
+            language=info["language"]
+        )
+        movies.append(m)
+    
+    scores = [compute_movie_score(m) for m in movies]
+    return random.choices(movies, weights=[exp(s) for s in scores], k=1)[0]
