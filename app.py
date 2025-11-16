@@ -17,8 +17,8 @@ def home():
                             movieCover = movie.cover,
                             movieRuntime = f"{movie.length//60}h, {movie.length%60}min" ,
                             movieCountry = movie.country,
-                            movieActors = ", ".join(movie.actors)
-                            likeProb = 50%
+                            movieActors = ", ".join(movie.actors),
+                            likeProb = 50
                             )
 
 def update_query(liked_movie: bool):
