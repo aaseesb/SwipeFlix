@@ -20,3 +20,12 @@
     <input id="acceptButton" type="button" name="accept" class="w-full h-full cursor-pointer bg-transparent absolute" onclick="updateMovie(true)">
     <div id="accept" class="relative hidden button-option rounded-full border-[6px] border-white m-5"></div>
 </div>
+
+<!-- bar placed outside of movie card -->
+<div id="bar-card" class="fixed top-1 right-[2%] h-full w-[20%] flex flex-col place-items-center p-6 mb-8">
+    <div class="barcontainer h-3/4">
+        <div class="bar" style="height:{{likeProb}}">
+        </div>
+    </div>
+    <p class="mt-5">We are {{likeProb}}% sure that you will like this movie</p>
+</div>
