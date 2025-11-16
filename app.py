@@ -49,7 +49,6 @@ def updateMovie():
     prob_percent = round(prob * 100)
 
     fav = scroll.get_top_features()
-    print(fav)
 
     page = render_template('movie.html', 
                             movieName = movie.title,
@@ -63,8 +62,8 @@ def updateMovie():
                             likeProb = prob_percent,
                             favGenre = fav['genres'],
                             favDecade = fav['decade'],
-                            favActor = fav['actors'],
-                            favCountry = fav['country'] #make the test like: You seem to really like... 2000's Horror Movies starring Nicholas Cage made in USA
+                            favActor = fav['actors'], #make the test like: You seem to really like... 2000's Horror Movies starring Nicholas Cage
+                            favMovie = fav["movie"]
                             )
     
     return jsonify(movie_html=page)
