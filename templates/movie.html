@@ -1,8 +1,8 @@
 <img id="movie-img" src="{{ movieCover }}" class="max-w-sm">
 
-<div id="movie-disc items-center">
+<div id="movie-disc">
     <h2 class="text-xl font-bold">{{movieName}}</h2>
-    <div id="flex flex-row justify-between">
+    <div class="flex flex-row justify-between m-1">
         <h3 class="text-sm text-gray-300">{{releaseDate}}</h3>
         <h3 class="text-sm text-gray-300">{{movieRuntime}}</h3>
         <h3 class="text-sm text-gray-300">{{movieGenre}}</h3>
@@ -13,11 +13,11 @@
 </div>
 
 <!-- transparent overlay for accept and decline -->
-<div id="overlay-left" class="overlay absolute top-0 left-0 w-1/2 h-full bg-transparent z-100 flex items-center">
-    <input type="hidden" name="decline" class="w-full h-full cursor-pointer" onclick="updateMovie(decline)">
-    <div id="decline" class="hidden button-option rounded-full border-[6px] border-white m-5"></div>
+<div id="overlay-left" class="overlay absolute top-0 left-0 w-1/2 h-full flex items-center z-0">
+    <input id="declineButton" type="button" name="decline" class="w-full h-full cursor-pointer bg-transparent absolute" onclick="updateMovie(false)">
+    <div id="decline" class="relative hidden button-option rounded-full border-[6px] border-white m-5"></div>
 </div>
-<div id="overlay-right" role="button" class="overlay absolute top-0 right-0 w-1/2 h-full bg-transparent z-100 flex items-center place-content-end">
-    <input type="hidden" name="accept" class="w-full h-full cursor-pointer" onclick="updateMovie(accept)">
-    <div id="accept" class="hidden button-option rounded-full border-[6px] border-white m-5"></div>
+<div id="overlay-right" class="overlay absolute top-0 right-0 w-1/2 h-full flex items-center place-content-end z-0">
+    <input id="acceptButton" type="button" name="accept" class="w-full h-full cursor-pointer bg-transparent absolute" onclick="updateMovie(true)">
+    <div id="accept" class="relative hidden button-option rounded-full border-[6px] border-white m-5"></div>
 </div>

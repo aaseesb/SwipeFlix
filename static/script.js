@@ -3,6 +3,8 @@ const overlayleft = document.getElementById('overlay-left');
 const overlayright = document.getElementById('overlay-right');
 const hiddenClass = 'hidden';
 
+const declineButton = document.getElementById('declineButton');
+const acceptButton = document.getElementById('acceptButton');
 
 function handleHover(event) {
     const trigger = event.currentTarget;
@@ -23,14 +25,36 @@ overlayright.addEventListener('mouseleave', handleHover);
 
 
 // updating movie.html
-function updateMovie(likedStatus) {
+declineButton.addEventListener('click', () => updateMovie(false));
+acceptButton.addEventListener('click', () => updateMovie(true));
+
+
+function updateMovie(likedMovie) {
     fetch('/update_movie', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ likedStatus })
+        body: JSON.stringify({ likedMovie })
     }).then(response => response.json())
     .then(data => {
         document.getElementById('movie-card').innerHTML = data.movie_html;
+
+        // re-select elements
+        const overlayLeft = document.getElementById('overlay-left');
+        const overlayRight = document.getElementById('overlay-right');
+        const declineButton = document.getElementById('declineButton');
+        const acceptButton = document.getElementById('acceptButton');
+
+        // re-attach event listeners
+        overlayleft.addEventListener('mouseenter', handleHover);
+        overlayleft.addEventListener('mouseleave', handleHover);
+        overlayright.addEventListener('mouseenter', handleHover);
+        overlayright.addEventListener('mouseleave', handleHover);
+
+
+        // updating movie.html
+        declineButton.addEventListener('click', () => updateMovie(false));
+        acceptButton.addEventListener('click', () => updateMovie(true));
+
     })
     .catch(error => console.error("Error:", error));
 }
