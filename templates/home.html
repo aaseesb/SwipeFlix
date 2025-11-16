@@ -14,18 +14,23 @@
         }
     </style>
 </head>
-<body class="relative min-h-screen p-4 sm:p-8 flex flex-col items-center text-white">
+<body class="relative min-h-screen p-4 sm:p-8  text-white grid grid-cols-[1fr_3fr_1fr] gap-4">
     
     <!-- title -->
-    <div class="absolute top-0 left-0 m-10 w-[15em]">
+    <div class="">
         <header>
             <h1 class="text-3xl font-extrabold mb-8">ScrollFlix</h1>
         </header>
     </div>
 
     <!-- movie swiping card -->
-    <div id="movie-card" class="opacity-100 transition-opacity duration-125 bg-[#1d2744] p-6 rounded-xl shadow-2xl mb-8 flex flex-col place-items-center text-white relative max-w-2xl text-center" style="overflow:hidden;">
+    <div id="movie-card" class="opacity-100 items-center transition-opacity duration-125 bg-[#1d2744] p-6 rounded-xl shadow-2xl mb-8 flex flex-col place-items-center text-white relative max-w-2xl text-center" style="overflow:hidden;">
         {% include 'movie.html' %}
+    </div>
+
+    <div class="barcontainer items-center">
+        <div class="bar" style="height:90%">
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
