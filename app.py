@@ -15,7 +15,7 @@ def home():
                             movieGenre = ", ".join(movie.genres),
                             movieDesc = movie.description,
                             movieCover = movie.cover,
-                            movieRuntime = f"{movie.length//60} hours, {movie.length%60} min" ,
+                            movieRuntime = f"{movie.length//60}h, {movie.length%60}min" ,
                             movieCountry = movie.country,
                             movieActors = ", ".join(movie.actors)
                             )

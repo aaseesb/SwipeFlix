@@ -1,15 +1,14 @@
 <img id="movie-img" src="{{ movieCover }}" class="w-xs h-[50vh]">
 
 <div id="movie-disc" class="flex flex-col items-center">
-    <h2 class="text-xl font-bold mb-2">{{movieName}}</h2>
-    <div class="flex flex-row justify-between w-3/4">
-        <h3 class="text-xs text-gray-300">{{movieCountry}}</h3>
-        <h3 class="text-xs text-gray-300">{{releaseDate}}</h3>
-        <h3 class="text-xs text-gray-300">{{movieRuntime}}</h3>
+    <h2 class="text-2xl font-bold m-2">{{movieName}} ({{releaseDate}})</h2>
+    <p class="text-lg mb-2">{{movieGenre}} </p>
+    <div class="flex flex-row gap-5 text-xs w-3/4 justify-center">
+        <h3>{{movieCountry}}</h3>
+        <h3>{{movieRuntime}}</h3>
     </div>
-    <p class="text-sm">{{movieGenre}} </p>
-    <p class="text-sm">{{movieActors}}</p>
-    <p class="text-sm">{{movieDesc}}</p>
+    <p class="text-xs">{{movieActors}}</p>
+    <p class="text-sm mt-2">{{movieDesc}}</p>
 </div>
 
 <!-- transparent overlay for accept and decline -->
