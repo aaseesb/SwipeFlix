@@ -1,25 +1,28 @@
-<img id="movie-img" src="{{ movieCover }}" class="w-xs h-[50vh]">
+<div id="card-to-animate" class="items-center transition-opacity duration-125 bg-[#1d2744] p-6 rounded-xl shadow-2xl mb-8 flex flex-col place-items-center text-white relative max-w-2xl text-center" style="overflow:hidden;">
+    <img id="movie-img" src="{{ movieCover }}" class="w-xs h-[50vh]">
 
-<div id="movie-disc" class="flex flex-col items-center">
-    <h2 class="text-2xl font-bold m-2">{{movieName}} ({{releaseDate}})</h2>
-    <p class="text-lg mb-2">{{movieGenre}} </p>
-    <div class="flex flex-row gap-5 text-xs w-3/4 justify-center">
-        <h3>{{movieCountry}}</h3>
-        <h3>{{movieRuntime}}</h3>
+    <div id="movie-disc" class="flex flex-col items-center">
+        <h2 class="text-2xl font-bold m-2">{{movieName}} ({{releaseDate}})</h2>
+        <p class="text-lg mb-2">{{movieGenre}} </p>
+        <div class="flex flex-row gap-5 text-xs w-3/4 justify-center">
+            <h3>{{movieCountry}}</h3>
+            <h3>{{movieRuntime}}</h3>
+        </div>
+        <p class="text-xs">{{movieActors}}</p>
+        <p class="text-sm mt-2">{{movieDesc}}</p>
     </div>
-    <p class="text-xs">{{movieActors}}</p>
-    <p class="text-sm mt-2">{{movieDesc}}</p>
+
+    <!-- transparent overlay for accept and decline -->
+    <div id="overlay-left" class="overlay absolute top-0 left-0 w-2/5 h-full flex items-center z-0">
+        <input id="declineButton" type="button" name="decline" class="w-full h-full cursor-pointer bg-transparent absolute" onclick="updateMovie(false)">
+        <div id="decline" class="relative hidden button-option rounded-full border-[6px] border-white m-5"></div>
+    </div>
+    <div id="overlay-right" class="overlay absolute top-0 right-0 w-2/5 h-full flex items-center place-content-end z-0">
+        <input id="acceptButton" type="button" name="accept" class="w-full h-full cursor-pointer bg-transparent absolute" onclick="updateMovie(true)">
+        <div id="accept" class="relative hidden button-option rounded-full border-[6px] border-white m-5"></div>
+    </div>
 </div>
 
-<!-- transparent overlay for accept and decline -->
-<div id="overlay-left" class="overlay absolute top-0 left-0 w-2/5 h-full flex items-center z-0">
-    <input id="declineButton" type="button" name="decline" class="w-full h-full cursor-pointer bg-transparent absolute" onclick="updateMovie(false)">
-    <div id="decline" class="relative hidden button-option rounded-full border-[6px] border-white m-5"></div>
-</div>
-<div id="overlay-right" class="overlay absolute top-0 right-0 w-2/5 h-full flex items-center place-content-end z-0">
-    <input id="acceptButton" type="button" name="accept" class="w-full h-full cursor-pointer bg-transparent absolute" onclick="updateMovie(true)">
-    <div id="accept" class="relative hidden button-option rounded-full border-[6px] border-white m-5"></div>
-</div>
 
 <!-- bar placed outside of movie card -->
 <div class="fixed top-1 right-[2%] h-full w-[20%] flex flex-col place-items-center p-6 mb-8">
@@ -41,6 +44,6 @@
 <!-- favourites description outside of card-->
 <div class="fixed top-[30%] left-[2%] h-full w-[20%] flex flex-col place-items-center p-6 mb-8">
     {% if favDecade and favGenre and favActor and favCountry and likeProb > 50 %}
-        <p>You seem to really like... {{favDecade}}'s {{favGenre}} movies starring {{favActor}} made in {{favCountry}}</p>
+        <p>You seem to really like... {{favDecade}}'s {{favGenre}} movies starring {{favActor}}</p>
     {% endif %}
 </div> 
