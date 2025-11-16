@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+        body { font-family: 'Roboto Mono', monospace; background-color: #1d2744 }
+    </style>
+</head>
+<body>
+    <!-- page content -->
+    <div class="p-20 flex flex-col items-center justify-center w-full h-full z-1 text-white">
+        <!-- title -->
+        <h1 class="text-2xl mb-3">About This Project</h1>
+
+        <!-- about the contributors -->
+        <h2 class="text-xl">Contributors</h2>
+
+        <div class="w-3/4 flex flex-row flex-wrap max-w-lg justify-center items-center p-1 m-1">
+            <!-- aasees -->
+            <div class="ml-2 flex flex-col items-center">
+            <h4>Aasees Badesha</h4>
+            <a href="https://github.com/aaseesb" target="_blank">GitHub</a>
+            </div>
+            <!-- zawar -->
+            <div class="ml-2 flex flex-col items-center">
+            <h4>Zawar Gondal</h4>
+            <a href="https://github.com/zawarg" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <!-- about the project -->
+        <div class="text-center">
+            <h2 class="mt-8 text-xl mb-1">Project Description</h2>
+            <p>
+                SwipeFlix is an intelligent movie-recommendation app that works like Tinder for movies.
+            </p>
+            <p>
+                Users swipe like or dislike, and the system instantly updates its understanding of their taste.
+            </p>
+            <p>
+                The frontend was built using HTML, CSS, JavaScript, and TailwindCSS.
+            </p>
+            <p>
+                The backend was built using Flask, and the core recommendation engine is a Bayesian-style scoring model that transforms feature ratios into a probability estimate using a logistic function.
+            </p>    
+            <p>Submitted as an entry for the McGill CodeJam 15!</p>  
+        </div>
+        
+
+        <!-- back button -->
+        <div class="mt-8">
+            <a href="/" class="button">⬅</a>
+        </div>
+    </div>
+</body>
+</html>
