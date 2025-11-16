@@ -20,16 +20,24 @@ def home():
                             movieActors = ", ".join(movie.actors)
                             )
 
+def update_query(liked_movie: bool):
 
-def update_query(liked_movie):
     global query
-    if query == []:
-        query = scroll.select_initial_movies()
-    else:
-        movie = query.pop(0)
-        scroll.update_probability(movie, liked_movie)
-        query.append(scroll.select_movie_weighted())
 
+    # FIRST TIME → fill queue
+    if len(query) == 0:
+        query.extend(scroll.select_initial_movies())
+        return
+
+    old_movie = query.pop(0)
+    scroll.update_probability(old_movie, liked_movie)
+
+    new_movie = scroll.select_movie_weighted()
+    query.append(new_movie)
+    
+     # Compute & print probability for debugging
+    prob = scroll.compute_like_probability(old_movie)
+    print(f"[DEBUG] Selected: {new_movie.title} → Probability: {prob*100:.2f}%")
 
 @app.route('/update_movie', methods=['POST'])
 def updateMovie():
