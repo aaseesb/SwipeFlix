@@ -11,13 +11,13 @@ def home():
 
     return render_template('home.html', 
                             movieName = movie.title,
-                            releaseDate = movie.release_date,
-                            movieGenre = movie.genres,
+                            releaseDate = movie.release_date[0:4],
+                            movieGenre = ", ".join(movie.genres),
                             movieDesc = movie.description,
                             movieCover = movie.cover,
-                            movieRuntime = movie.length,
+                            movieRuntime = f"{movie.length//60} hours, {movie.length%60} min" ,
                             movieCountry = movie.country,
-                            movieActors = movie.actors
+                            movieActors = ", ".join(movie.actors)
                             )
 
 def update_query(liked_movie: bool):
@@ -49,13 +49,13 @@ def updateMovie():
 
     page = render_template('movie.html', 
                             movieName = movie.title,
-                            releaseDate = movie.release_date,
-                            movieGenre = movie.genres,
+                            releaseDate = movie.release_date[0:4],
+                            movieGenre = ", ".join(movie.genres),
                             movieDesc = movie.description,
                             movieCover = movie.cover,
-                            movieRuntime = movie.length,
+                            movieRuntime = f"{movie.length//60} hours, {movie.length%60} min" ,
                             movieCountry = movie.country,
-                            movieActors = movie.actors
+                            movieActors = ", ".join(movie.actors)
                             )
     
     return jsonify(movie_html=page)

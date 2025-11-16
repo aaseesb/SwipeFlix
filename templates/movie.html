@@ -1,14 +1,14 @@
 <img id="movie-img" src="{{ movieCover }}" class="w-xs h-[50vh]">
 
-<div id="movie-disc items-center">
+<div id="movie-disc" class="flex flex-col items-center">
     <h2 class="text-xl font-bold mb-2">{{movieName}}</h2>
-    <div class="flex flex-row justify-between w-1/2">
+    <div class="flex flex-row justify-between w-3/4">
+        <h3 class="text-xs text-gray-300">{{movieCountry}}</h3>
         <h3 class="text-xs text-gray-300">{{releaseDate}}</h3>
         <h3 class="text-xs text-gray-300">{{movieRuntime}}</h3>
-        <h3 class="text-xs text-gray-300">{{movieGenre}}</h3>
     </div>
-    <p class="text-sm">Country: {{movieCountry}} </p>
-    <p class="text-sm">Lead cast: {{movieActors}}</p>
+    <p class="text-sm">{{movieGenre}} </p>
+    <p class="text-sm">{{movieActors}}</p>
     <p class="text-sm">{{movieDesc}}</p>
 </div>
 

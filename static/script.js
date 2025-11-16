@@ -39,8 +39,8 @@ function updateMovie(likedMovie) {
         document.getElementById('movie-card').innerHTML = data.movie_html;
 
         // re-select elements
-        const overlayLeft = document.getElementById('overlay-left');
-        const overlayRight = document.getElementById('overlay-right');
+        const overlayleft = document.getElementById('overlay-left');
+        const overlayright = document.getElementById('overlay-right');
         const declineButton = document.getElementById('declineButton');
         const acceptButton = document.getElementById('acceptButton');
 
@@ -49,7 +49,6 @@ function updateMovie(likedMovie) {
         overlayleft.addEventListener('mouseleave', handleHover);
         overlayright.addEventListener('mouseenter', handleHover);
         overlayright.addEventListener('mouseleave', handleHover);
-
 
         // updating movie.html
         declineButton.addEventListener('click', () => updateMovie(false));
