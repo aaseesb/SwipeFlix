@@ -30,6 +30,7 @@ function initialize() {
     acceptButton.addEventListener('click', () => updateMovie(true));
 }
 
+initialize();
 
 function updateMovie(likedMovie) {
     const card = document.getElementById('movie-card');
