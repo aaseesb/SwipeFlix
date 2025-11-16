@@ -24,7 +24,7 @@ def update_query(liked_movie: bool):
 
     global query
 
-    # FIRST TIME → fill queue
+    # fill queue for first time
     if len(query) == 0:
         query.extend(scroll.select_initial_movies())
         return
@@ -35,15 +35,16 @@ def update_query(liked_movie: bool):
     new_movie = scroll.select_movie_weighted()
     query.append(new_movie)
     
-     # Compute & print probability for debugging
-    prob = scroll.compute_like_probability(old_movie)
-    print(f"[DEBUG] Selected: {new_movie.title} → Probability: {prob*100:.2f}%")
 
 @app.route('/update_movie', methods=['POST'])
 def updateMovie():
     data = request.get_json()
     liked_status = data.get('likedMovie') # true for accept, false for decline
 
+    # compute probability
+    prob = scroll.compute_like_probability(movie)
+    prob_percent = round(prob * 100)
+    
     update_query(liked_status)
     movie = query[0]
 
@@ -55,7 +56,8 @@ def updateMovie():
                             movieCover = movie.cover,
                             movieRuntime = f"{movie.length//60} hours, {movie.length%60} min" ,
                             movieCountry = movie.country,
-                            movieActors = ", ".join(movie.actors)
+                            movieActors = ", ".join(movie.actors),
+                            likeProb = prob_percent
                             )
     
     return jsonify(movie_html=page)
