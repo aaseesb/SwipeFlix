@@ -9801,25 +9801,6 @@
         },
         "country": "United States of America"
     },
-    "Into the Woods": {
-        "title": "Into the Woods",
-        "poster": null,
-        "release_date": "2008-10-31",
-        "genres": [
-            "Horror"
-        ],
-        "language": "en",
-        "description": "A woman is drugged, abducted and pursued in the woods by a mysterious assailant.",
-        "runtime": 65,
-        "actors": {
-            "lead": "Nancy Feliciano",
-            "supporting": [
-                "Tiffany Sinclair",
-                "Darla Doom"
-            ]
-        },
-        "country": null
-    },
     "Rocky IV": {
         "title": "Rocky IV",
         "poster": "https://image.tmdb.org/t/p/w500/2MHUit4H6OK5adcOjnCN6suCKOl.jpg",
@@ -11202,20 +11183,6 @@
             ]
         },
         "country": "United Kingdom"
-    },
-    "The Break-Up": {
-        "title": "The Break-Up",
-        "poster": null,
-        "release_date": "2016-02-12",
-        "genres": [],
-        "language": "th",
-        "description": "An internet film by Nawapol Thamrongrattanarit.",
-        "runtime": 6,
-        "actors": {
-            "lead": "Chanicha Boonpanuvichit",
-            "supporting": []
-        },
-        "country": "Thailand"
     },
     "Lemony Snicket's A Series of Unfortunate Events": {
         "title": "Lemony Snicket's A Series of Unfortunate Events",
@@ -17584,25 +17551,6 @@
             ]
         },
         "country": "United States of America"
-    },
-    "Birds of Prey": {
-        "title": "Birds of Prey",
-        "poster": null,
-        "release_date": "1985-03-15",
-        "genres": [
-            "Thriller"
-        ],
-        "language": "en",
-        "description": "A homicide detective finds himself being stalked by a killer responsible for a series of mob style executions.",
-        "runtime": 80,
-        "actors": {
-            "lead": "Jorge Montesi",
-            "supporting": [
-                "Joseph Patrick Finn",
-                "Linda Elder"
-            ]
-        },
-        "country": null
     },
     "Atlantis: The Lost Empire": {
         "title": "Atlantis: The Lost Empire",
