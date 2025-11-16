@@ -1,4 +1,5 @@
 # SwipeFlix: Smart Movie Recommendation App
+![proj_gif](https://github.com/user-attachments/assets/e9b044bc-3296-4028-9b1a-7c2649e3e478)
 
 ## Inspiration
 Choosing a movie shouldn’t feel like homework. We wanted something fast, fun, and addictive. SwipeFlix was inspired by the idea that preferences can be learned extremely quickly if the system is reactive enough.  
