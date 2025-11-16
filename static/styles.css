@@ -69,14 +69,12 @@
     background-color: #181818;
     position: relative;
     transform: translateY(-50%);
-    top: 50%;
-    margin-left: 50px;
+    top: 40%;
     width: 50px;
-    height: 320px;
     float: center;
 }
 .bar{
-    background-color: #9BC9C7;
+    background-color: #a00000;
     position: absolute;
     bottom: 0;
     width: 100%;

@@ -33,14 +33,15 @@ function initialize() {
 initialize();
 
 function updateMovie(likedMovie) {
-    const card = document.getElementById('movie-card');
+    const movieCard = document.getElementById('movie-card');
+
     // fade out
-    card.classList.remove('opacity-100');
-    card.classList.add('opacity-0');
+    movieCard.classList.remove('opacity-100');
+    movieCard.classList.add('opacity-0');
     
     // make sure it's faded out before fetching
-    card.addEventListener('transitionend', function handleFadeOut() {
-        card.removeEventListener('transitionend', handleFadeOut);
+    movieCard.addEventListener('transitionend', function handleFadeOut() {
+        movieCard.removeEventListener('transitionend', handleFadeOut);
         fetch('/update_movie', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -48,15 +49,15 @@ function updateMovie(likedMovie) {
         }).then(response => response.json())
         .then(data => {
             // change html
-            card.innerHTML = data.movie_html;
+            movieCard.innerHTML = data.movie_html;
             
             // make sure opacity=0 is applied
-            void card.offsetWidth;
+            void movieCard.offsetWidth;
 
             // fade in before showing
             requestAnimationFrame(() => {
-                card.classList.remove('opacity-0');
-                card.classList.add('opacity-100');
+                movieCard.classList.remove('opacity-0');
+                movieCard.classList.add('opacity-100');
             });
 
             // re-initialize elements
