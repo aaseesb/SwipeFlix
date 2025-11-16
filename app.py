@@ -59,7 +59,7 @@ def updateMovie():
                             movieRuntime = f"{movie.length//60} hours, {movie.length%60} min" ,
                             movieCountry = movie.country,
                             movieActors = ", ".join(movie.actors),
-                            likeProb = prob_percent
+                            likeProb = prob_percent,
                             favGenre = fav.genres,
                             favDecade = fav.decade,
                             favActor = fav.actors,
