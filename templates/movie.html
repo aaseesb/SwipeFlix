@@ -22,7 +22,7 @@
 </div>
 
 <!-- bar placed outside of movie card -->
-<div id="bar-card" class="fixed top-1 right-[2%] h-full w-[20%] flex flex-col place-items-center p-6 mb-8">
+<div class="fixed top-1 right-[2%] h-full w-[20%] flex flex-col place-items-center p-6 mb-8">
     <div class="barcontainer h-3/4">
         <div class="bar" style="height:{{likeProb}}%; 
                                 {% if likeProb > 50 %}
@@ -37,3 +37,10 @@
     </div>
     <p class="mt-6">We are {{likeProb}}% sure that you will like this movie.</p>
 </div>
+
+<!-- favourites description outside of card-->
+<div class="fixed top-[30%] left-[2%] h-full w-[20%] flex flex-col place-items-center p-6 mb-8">
+    {% if favDecade and favGenre and favActor and favCountry and likeProb > 50 %}
+        <p>You seem to really like... {{favDecade}}'s {{favGenre}} movies starring {{favActor}} made in {{favCountry}}</p>
+    {% endif %}
+</div> 
