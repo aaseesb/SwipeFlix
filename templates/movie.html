@@ -43,7 +43,11 @@
 
 <!-- favourites description outside of card-->
 <div class="fixed top-[30%] left-[2%] h-full w-[20%] flex flex-col place-items-center p-6 mb-8">
-    {% if favDecade and favGenre and favActor and favCountry and likeProb > 50 %}
-        <p>You seem to really like... {{favDecade}}'s {{favGenre}} movies starring {{favActor}}</p>
+    {% if favDecade and favGenre and favActor and favMovie and likeProb > 50 %}
+        <p>You seem to like... </p>
+        <p>{{favDecade}}'s {{favGenre}} movies starring {{favActor}}</p>
+        
+        <p class="mt-8">We think you'd love... </p>
+        <p>{{favMovie}}</p>
     {% endif %}
 </div> 

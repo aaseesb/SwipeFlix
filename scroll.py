@@ -23,6 +23,7 @@ feature_stats = {
 
 with open("movies.json", "r", encoding='utf-8') as f:
     movie_db = json.load(f)
+    copy_db = movie_db.copy()
 
 class Movie:
     def __init__(self, title, cover, description, genres, release_date, length, actors, country, language):
@@ -171,8 +172,37 @@ def get_top_features():
                 best_feature = feature
         
         top_features[category] = best_feature
-    
-    return(top_features)
+        
+    best_movie = None
+    best_score = -1
+
+    for movie_id, info in copy_db.items():
+
+        movie_genres = set(info["genres"])
+        movie_actors = set(info["actors"]["supporting"] + 
+                           ([info["actors"]["lead"]] if info["actors"]["lead"] else []))
+        movie_country = info["country"]
+        year = int(info["release_date"].split("-")[0])
+        movie_decade = f"{(year // 10) * 10}s"
+
+        score = 0
+        if top_features["genres"] in movie_genres:
+            score += 1
+        if top_features["actors"] in movie_actors:
+            score += 1
+        if top_features["country"] == movie_country:
+            score += 1
+        if top_features["decade"] == movie_decade:
+            score += 1
+
+        if score > best_score:
+            best_score = score
+            best_movie = info
+
+    top_features["movie"] = best_movie['title'] + " " + best_movie['release_date'][0:4]
+
+    return top_features
+
 
 """if __name__ == "__main__":
     print("Initial three random movies:")
