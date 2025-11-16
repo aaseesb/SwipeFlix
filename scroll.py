@@ -23,7 +23,6 @@ feature_stats = {
 
 with open("movies.json", "r", encoding='utf-8') as f:
     movie_db = json.load(f)
-    print("ASLFJNALKDJBLDKJFSBLAKJSFkb")
 
 class Movie:
     def __init__(self, title, cover, description, genres, release_date, length, actors, country, language):
