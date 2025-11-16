@@ -36,7 +36,7 @@ def update_query(liked_movie: bool):
     query.append(new_movie)
     
      # Compute & print probability for debugging
-    prob = scroll.compute_like_probability(new_movie)
+    prob = scroll.compute_like_probability(old_movie)
     print(f"[DEBUG] Selected: {new_movie.title} → Probability: {prob*100:.2f}%")
 
 @app.route('/update_movie', methods=['POST'])
