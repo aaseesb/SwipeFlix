@@ -72,6 +72,7 @@
     top: 40%;
     width: 50px;
     float: center;
+    z-index: -2;
 }
 .bar{
     position: absolute;
@@ -86,4 +87,56 @@
     from{
         transform: scaleY(0);
     }
+}
+
+/* throwing animation to the right (accept)*/
+@keyframes throwCardRight {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    20% { /* slight curve right+down */
+        transform: translate(70px, 25px) rotate(6deg) scale(1.01);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(480px, 220px) rotate(18deg) scale(0.95);
+        opacity: 0;
+    }
+}
+
+.throw-right {
+    animation: throwCardRight 0.5s cubic-bezier(.25,.46,.45,1) forwards;
+}
+
+/* throwing animation to the left (decline)*/
+@keyframes throwCardLeft {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    20% { /* slight curve left+down */
+        transform: translate(-70px, 25px) rotate(-6deg) scale(1.01);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-480px, 220px) rotate(-18deg) scale(0.95);
+        opacity: 0;
+    }
+}
+
+.throw-left {
+    animation: throwCardLeft 0.5s cubic-bezier(.25,.46,.45,1) forwards;
+}
+
+
+/* fade in animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
