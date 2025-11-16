@@ -158,7 +158,7 @@ def select_movie_weighted():
     return best_movie
 
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     print("Initial three random movies:")
     initial_movies = select_initial_movies()
     for m in initial_movies:
@@ -170,4 +170,4 @@ if __name__ == "__main__":
         win = True
         update_probability(movie, win)
         prob = compute_like_probability(movie)
-        print(f"[Answer {i}] Liked: {movie.title} -> Probability: {prob*100:.2f}%")
+        print(f"[Answer {i}] Liked: {movie.title} -> Probability: {prob*100:.2f}%")"""
