@@ -4,7 +4,7 @@ import time
 import os
 import re 
 
-API_KEY = "4dd92ae62b15a6c5ade7300d9f7c7ff9"
+API_KEY = os.environ["TMDB_API_KEY"]  # only needed to re-run this import script
 BASE = "https://api.themoviedb.org/3"
 
 def fetch_movie_data(movie_name):

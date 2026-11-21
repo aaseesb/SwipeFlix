@@ -11,15 +11,32 @@ GENRE_WEIGHT = 5
 ACTOR_WEIGHT = 2
 COUNTRY_WEIGHT = 0.5
 DECADE_WEIGHT = 1
-explore_rate = 0.3
 
 
-feature_stats = {
-    "genres": {},
-    "actors": {},
-    "country": {},
-    "decade": {}
-}
+def new_state():
+    """Per-user state. Lives in the browser and is sent with each request (the server is stateless)."""
+    return {
+        "queue": [],  # titles of the movies lined up for the user
+        "seen": [],   # titles already swiped
+        "explore": 0.3,
+        "stats": {"genres": {}, "actors": {}, "country": {}, "decade": {}},
+    }
+
+def clean_state(raw):
+    """Validate client-supplied state so bad input can't crash the scoring maths."""
+    state = new_state()
+    try:
+        state["queue"] = [t for t in raw["queue"] if t in movie_db][:3]
+        state["seen"] = [t for t in raw["seen"] if t in movie_db]
+        state["explore"] = min(0.3, max(0.1, float(raw["explore"])))
+        for cat, feats in raw["stats"].items():
+            if cat in state["stats"]:
+                for k, c in feats.items():
+                    state["stats"][cat][str(k)] = {
+                        "likes": max(1, int(c["likes"])), "dislikes": max(1, int(c["dislikes"]))}
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return new_state()
+    return state
 
 with open("movies.json", "r", encoding='utf-8') as f:
     movie_db = json.load(f)
@@ -51,6 +68,13 @@ class Movie:
         decade = (year // 10) * 10
         return f"{decade}s"
 
+def get_movie(title):
+    info = movie_db[title]
+    return Movie(
+        title=info["title"], cover=info["poster"], description=info["description"],
+        genres=info["genres"], release_date=info["release_date"], length=info["runtime"],
+        actors=info["actors"], country=info["country"], language=info["language"])
+
 def select_initial_movies():
     selected_movies = []
     for i in range(3):
@@ -78,15 +102,15 @@ def update_feature(feature_dict, key, win):
     else:
         feature_dict[key]["dislikes"] += 1
 
-def update_probability(movie, win):
-
+def update_probability(state, movie, win):
+    stats = state["stats"]
     for g in movie.genres:
-        update_feature(feature_stats["genres"], g, win)
+        update_feature(stats["genres"], g, win)
     for a in movie.actors:
-        update_feature(feature_stats["actors"], a, win)
-    update_feature(feature_stats["country"], movie.country, win)
-    update_feature(feature_stats["decade"], movie.decade, win)
-    movie_db.pop(movie.title, None)
+        update_feature(stats["actors"], a, win)
+    update_feature(stats["country"], movie.country, win)
+    update_feature(stats["decade"], movie.decade, win)
+    state["seen"].append(movie.title)
 
 
 
@@ -94,7 +118,8 @@ MIN_PROB = 1
 MAX_PROB = 99
 BASE_PROB = 50 
 
-def compute_like_probability(movie):
+def compute_like_probability(state, movie):
+    feature_stats = state["stats"]
     prob = BASE_PROB
 
     for g in movie.genres:
@@ -115,12 +140,14 @@ def compute_like_probability(movie):
 
     return prob / 100
 
-def select_movie_weighted():
-    global explore_rate
+def select_movie_weighted(state):
+    # movies the user hasn't swiped yet
+    seen = set(state["seen"])
+    pool = [info for title, info in movie_db.items() if title not in seen]
 
     # Exploration
-    if random.random() < explore_rate:
-        info = random.choice(list(movie_db.values()))
+    if random.random() < state["explore"]:
+        info = random.choice(pool)
         movie = Movie(
             title=info["title"],
             cover=info["poster"],
@@ -132,13 +159,13 @@ def select_movie_weighted():
             country=info["country"],
             language=info["language"]
         )
-        explore_rate = max(0.1, explore_rate - 0.05)  # decay by 5%
+        state["explore"] = max(0.1, state["explore"] - 0.05)  # decay by 5%
         return movie
 
     # Exploitation
     best_movie = None
     best_prob = -1
-    for info in movie_db.values():
+    for info in pool:
         m = Movie(
             title=info["title"],
             cover=info["poster"],
@@ -150,18 +177,17 @@ def select_movie_weighted():
             country=info["country"],
             language=info["language"]
         )
-        prob = compute_like_probability(m)
+        prob = compute_like_probability(state, m)
         if prob > best_prob:
             best_prob = prob
             best_movie = m
 
     return best_movie
 
-def get_top_features():
-    global feature_stats
+def get_top_features(state):
     top_features = {}
 
-    for category, stats in feature_stats.items():
+    for category, stats in state["stats"].items():
         best_feature = None
         best_ratio = -1  # likes/dislikes ratio
         

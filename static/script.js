@@ -58,10 +58,11 @@ function updateMovie(likedMovie) {
         fetch('/update_movie', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ likedMovie })
+            body: JSON.stringify({ likedMovie, state: window.swipeState })
         })
         .then(response => response.json())
         .then(data => {
+            window.swipeState = data.state;
             // replace container content
             cardContainer.innerHTML = data.movie_html;
 

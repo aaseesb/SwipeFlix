@@ -26,9 +26,10 @@
 
     <!-- movie swiping card -->
     <div id="movie-card" class="items-center transition-opacity duration-125 bg-[#1d2744] flex flex-col place-items-center relative text-center">
-        {% include 'movie.html' %}
+        {{ card|safe }}
     </div>
 
+    <script>window.swipeState = {{ state|tojson }};</script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
